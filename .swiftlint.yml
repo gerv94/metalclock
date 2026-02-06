@@ -1,0 +1,18 @@
+# SwiftLint basic config for MetalClock
+# Keep it minimal to avoid noisy CI failures.
+excluded:
+  - MetalClock.xcodeproj
+  - MetalClock/Resources
+  - MetalClock/Shaders
+
+# Prefer warnings over failures at start (no --strict in CI step).
+disabled_rules:
+  - line_length
+  - trailing_whitespace
+  - todo
+
+opt_in_rules:
+  - empty_count
+  - implicit_return
+  - closure_spacing
+
