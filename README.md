@@ -16,6 +16,13 @@ A minimalist floating analog clock for macOS 13+ rendered entirely with Metal in
 - **Focus-based window opacity** (alpha changes via `NSWindow.alphaValue`)
 
 ## Requirements
+
+## Download & Install
+- Download the latest release ZIP from [Releases](https://github.com/gerv94/metalclock/releases).
+- Unzip it and move `MetalClock.app` to `/Applications`.
+- Because the app is unsigned (no notarization), macOS Gatekeeper may block it on first launch. To open it: right‑click the app → Open → Open.
+- Optional: verify the ZIP integrity by running:`shasum -a 256 MetalClock-macOS.zip` and compare with the `.sha256` file attached to the release.
+
 - macOS 13+ (Sonoma compatible)
 - Xcode 15+ (or compatible with macOS 13 SDK)
 
