@@ -24,7 +24,7 @@ jobs:
           set -o pipefail
           xcodebuild \
             -project MetalClock.xcodeproj \
-            -target MetalClock \
+            -scheme MetalClock \
             -configuration Release \
             -derivedDataPath build \
             -destination 'platform=macOS' \
