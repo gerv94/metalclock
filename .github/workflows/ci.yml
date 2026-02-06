@@ -45,7 +45,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install SwiftLint (Homebrew)
+        run: |
+          HOMEBREW_NO_AUTO_UPDATE=1 brew install swiftlint
+
       - name: SwiftLint (basic)
-        uses: norio-nomura/action-swiftlint@3.2.1
-        with:
-          args: --quiet
+        run: swiftlint --quiet --config .swiftlint.yml
