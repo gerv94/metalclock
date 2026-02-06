@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    name: Build and Publish (macOS)
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 15
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '15.*'
+
+      - name: Build app (Release, unsigned)
+        run: |
+          set -eo pipefail
+          xcodebuild \
+            -project MetalClock.xcodeproj \
+            -scheme MetalClock \
+            -configuration Release \
+            -derivedDataPath build \
+            -destination 'platform=macOS' \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            build
+
+      - name: Package app as ZIP
+        run: |
+          cd build/Build/Products/Release
+          ditto -c -k --sequesterRsrc --keepParent MetalClock.app MetalClock-macOS.zip
+
+      - name: Generate SHA-256 checksum
+        run: |
+          cd build/Build/Products/Release
+          shasum -a 256 MetalClock-macOS.zip > MetalClock-macOS.zip.sha256
+
+      - name: Create GitHub Release and upload assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            build/Build/Products/Release/MetalClock-macOS.zip
+            build/Build/Products/Release/MetalClock-macOS.zip.sha256
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
