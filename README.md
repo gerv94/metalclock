@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/gerv94/metalclock/actions/workflows/ci.yml/badge.svg)](https://github.com/gerv94/metalclock/actions/workflows/ci.yml)
 
+![image](https://github.com/user-attachments/assets/793f51d9-ecb7-4a9a-9831-9d81577e875e)
 
 A minimalist floating analog clock for macOS 13+ rendered entirely with Metal inside an `MTKView` hosted by SwiftUI. The window is borderless, transparent, and can live as a menu bar (tray) app with optional always-on-top behavior. The clock hands sweep smoothly using high‑resolution time and SDF-based rendering in the Metal fragment shader.
 
