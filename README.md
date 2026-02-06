@@ -1,6 +1,7 @@
 # MetalClock (macOS)
 
 [![CI](https://github.com/gerv94/metalclock/actions/workflows/ci.yml/badge.svg)](https://github.com/gerv94/metalclock/actions/workflows/ci.yml)
+[![Latest Release](https://img.shields.io/github/v/release/gerv94/metalclock?display_name=tag&sort=semver)](https://github.com/gerv94/metalclock/releases/latest)
 
 ![image](https://github.com/user-attachments/assets/793f51d9-ecb7-4a9a-9831-9d81577e875e)
 
